@@ -858,8 +858,8 @@ std::string DTLayer::modifyString(std::string ToModify){
                 time_t time = m_SharedLevelStats.sessions[m_SessionSelected - 1].sessionStartDate;
                 auto tm = std::localtime(&time);
 
-                ToModify.insert(inctences[i], fmt::format("{}/{}/{}", tm->tm_mon + 1, tm->tm_mday, tm->tm_year + 1900));
-                overallOffset += fmt::format("{}/{}/{}", tm->tm_mon + 1, tm->tm_mday, tm->tm_year + 1900).length();
+                ToModify.insert(inctences[i], fmt::format("{:02d}/{:02d}/{:04d}", tm->tm_mon + 1, tm->tm_mday, tm->tm_year + 1900));
+                overallOffset += fmt::format("{:02d}/{:02d}/{:04d}", tm->tm_mon + 1, tm->tm_mday, tm->tm_year + 1900).length();
             }
         }
         if (StatsManager::isKeyInIndex(ToModify, inctences[i] + 1, "sst}")){
@@ -884,8 +884,8 @@ std::string DTLayer::modifyString(std::string ToModify){
                     clock12Time = "PM";
                 }
 
-                ToModify.insert(inctences[i], fmt::format("{}:{}{}", tm->tm_hour, tm->tm_min, clock12Time));
-                overallOffset += fmt::format("{}:{}{}", tm->tm_hour, tm->tm_min, clock12Time).length();
+                ToModify.insert(inctences[i], fmt::format("{:02d}:{:02d}{}", tm->tm_hour, tm->tm_min, clock12Time));
+                overallOffset += fmt::format("{:02d}:{:02d}{}", tm->tm_hour, tm->tm_min, clock12Time).length();
             }
         }
 
